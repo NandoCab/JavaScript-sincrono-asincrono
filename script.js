@@ -185,7 +185,7 @@ let errorCase = promise3.catch(e => {
     console.log("There has been a problem with your fetch operation: " + e.message);
 });*/
 
-fetch("coffee.jpg")
+/*fetch("coffee.jpg")
 
 .then(response => response.blob())
 
@@ -199,4 +199,37 @@ fetch("coffee.jpg")
     document.body.appendChild(image);
 }).catch(e => {
     console.log("There has been a problem with your fetch operation: " + e.mesage);
-});
+});*/
+
+
+/*const imageS = 'shrek.jpg'
+async function myFech() {
+    let response = await fetch('https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG');
+    let myBlob = await response.blob();
+
+    let objectURL = URL.createObjectURL(myBlob);
+    let image = document.createElement("img");
+    image.scr = objectURL;
+    document.body.appendChild(image);
+}
+
+myFech()
+.catch(e => {
+    console.log("There has been a problem with your fetch operation: " + e);
+});*/
+
+async function myFech() {
+    try {
+        let response = await fetch("coffee.jpg");
+        let myBlob = await response.blob();
+
+        let objectURL = URL.createObjectURL(myBlob);
+        let image = document.createElement("img");
+        image.scr = objectURL;
+        document.body.appendChild(image);
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+myFech();
